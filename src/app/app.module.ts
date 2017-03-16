@@ -6,6 +6,8 @@ import { ContactPage } from '../pages/contact/contact';
 import { HomePage } from '../pages/home/home';
 import { TabsPage } from '../pages/tabs/tabs';
 
+import { FIREBASE_PROVIDERS, defaultFirebase, AngularFire, AngularFireModule } from 'angularfire2';
+
 @NgModule({
   declarations: [
     MyApp,
@@ -15,9 +17,18 @@ import { TabsPage } from '../pages/tabs/tabs';
     TabsPage
   ],
   imports: [
-    IonicModule.forRoot(MyApp)
+    IonicModule.forRoot(MyApp),
+    AngularFireModule.initializeApp({
+      apiKey: "AIzaSyBHb4xlvYBwVs9jV3DVbzJ2tSZ8XJKIWVw",
+      authDomain: "abacus-development.firebaseapp.com",
+      databaseURL: "https://abacus-development.firebaseio.com/",
+      storageBucket: "abacus-development.appspot.com",
+      messagingSenderId: "271462877427"
+    })
   ],
-  bootstrap: [IonicApp],
+  bootstrap: [
+    IonicApp
+  ],
   entryComponents: [
     MyApp,
     AboutPage,
